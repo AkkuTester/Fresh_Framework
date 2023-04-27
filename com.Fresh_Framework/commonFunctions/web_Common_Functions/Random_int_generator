@@ -1,0 +1,7 @@
+// to generate random int numbers
+		public static int generateString(int numberOfDigits) {
+			
+			Random rand  = new Random();
+			return rand.nextInt(numberOfDigits);
+			
+		}
