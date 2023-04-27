@@ -1,0 +1,13 @@
+
+	// to generate random alphabetic string
+	public static String generateRandomAlphabetciString(int sizeOfTheString) {
+		
+		return RandomStringUtils.randomAlphabetic(sizeOfTheString);
+	}
+	
+	// to generate random alphanumeric string
+	public static String generateRandomAlphanumericString(int sizeOfTheString) {
+		
+		return	RandomStringUtils.randomAlphanumeric(sizeOfTheString);
+	}
+	
