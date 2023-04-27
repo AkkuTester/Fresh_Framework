@@ -1,7 +1,13 @@
-// to generate random int numbers
+
+import java.util.Random;
+
+public class Random_int_generator {
+
+		// to generate random numbers
 		public static int generateString(int numberOfDigits) {
 			
 			Random rand  = new Random();
 			return rand.nextInt(numberOfDigits);
 			
 		}
+}
