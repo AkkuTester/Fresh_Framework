@@ -1,0 +1,30 @@
+package temp;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ReadDataFromTextFile {
+
+	public static void main(String[] args) throws IOException {
+		
+		//file path
+		String filePath = "E://Test_Data/Demo_Test_Data.txt" ;
+		
+		//creating object of File class
+		File file = new File(filePath);
+		
+		//creating object of scanner class
+		Scanner sc = new Scanner(file);
+		
+	while(sc.hasNextLine()) {
+		
+		String data = sc.nextLine();
+		System.out.println(data);
+	}
+	sc.close();
+	
+	}
+	
+
+}
