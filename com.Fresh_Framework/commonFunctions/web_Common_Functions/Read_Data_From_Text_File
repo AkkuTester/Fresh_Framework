@@ -9,64 +9,62 @@ public class ReadDataFromTextFile {
 
 	public static void main(String[] args) throws Exception {
 		
-		//file path
-		String filePath = "E://Test_Data/Demo_Test_Data.txt" ;
-		//creating object of File class
-		File file = new File(filePath);
-		//creating object of scanner class
-		Scanner sc = new Scanner(file);
+//file path
+String filePath = "E://Test_Data/Demo_Test_Data.txt" ;
+//creating object of File class
+File file = new File(filePath);
+//creating object of scanner class
+Scanner sc = new Scanner(file);
 		
-		if(file.canRead()) {
-			while(sc.hasNextLine()) {
-				String data = sc.nextLine();
-				System.out.println(data);
-			} 
-		} else {
-			sc.close();
-			throw new Exception("File Can not be read");
-		}
+if(file.canRead()) {
+	while(sc.hasNextLine()) {
+	String data = sc.nextLine();
+	System.out.println(data);
+} 
+     } else {
 		sc.close();
-	
-	
-		// real time implementation of a function
-		String filePath1 = "E://Test_Data/Demo_Test_Data.txt" ;
-		List<String> d = readDataFromTextFile(filePath1);
-		
-		for(String S : d) {
-			System.out.println(S);
-		}
+		throw new Exception("File Can not be read");
 	}
+	sc.close();
+	
+// real time implementation of a function
+String filePath1 = "E://Test_Data/Demo_Test_Data.txt" ;
+List<String> d = readDataFromTextFile(filePath1);
+
+for(String S : d) {
+	System.out.println(S);
+}
+  }
 	
 // *****************************************************************************************************************
 	//commom function for reading the data from the text file
 	public static List<String> readDataFromTextFile(String filePath) throws Exception {
 		
-		List<String> dataFromTextFile = new ArrayList<String>();
-		String fileLocation = filePath;
-		File file = new File(fileLocation);
+	List<String> dataFromTextFile = new ArrayList<String>();
+	String fileLocation = filePath;
+	File file = new File(fileLocation);
 		
-		Scanner sc = new Scanner(file);
+	Scanner sc = new Scanner(file);
 		
-		if(file.canRead()) {
+	if(file.canRead()) {
 			
-			while(sc.hasNextLine()) {
-				String data = sc.nextLine();
-				dataFromTextFile.add(data);
-			}
-		}else {
-			sc.close();
-			throw new Exception("File Can not be read!");
-		}
-		
+		while(sc.hasNextLine()) {
+		String data = sc.nextLine();
+		dataFromTextFile.add(data);
+	}
+	}else {
 		sc.close();
+		throw new Exception("File Can not be read!");
+	}
 		
-		for(int i=0; i<dataFromTextFile.size(); i++) {
+	sc.close();
+		
+for(int i=0; i<dataFromTextFile.size(); i++) {
 			
-			if(dataFromTextFile.get(i).equals("")) { // to remove the spaces from the file
-				dataFromTextFile.remove(i);  // if found removing the spaces
-			}
-		}
-		
-		return dataFromTextFile;
+if(dataFromTextFile.get(i).equals("")) { // to remove the spaces from the file
+dataFromTextFile.remove(i);  // if found removing the spaces
+    }
+	}
+	return dataFromTextFile;
 	}
 }
