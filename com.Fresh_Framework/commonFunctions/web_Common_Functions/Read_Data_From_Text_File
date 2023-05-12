@@ -1,30 +1,72 @@
 package temp;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ReadDataFromTextFile {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		
 		//file path
 		String filePath = "E://Test_Data/Demo_Test_Data.txt" ;
-		
 		//creating object of File class
 		File file = new File(filePath);
-		
 		//creating object of scanner class
 		Scanner sc = new Scanner(file);
 		
-	while(sc.hasNextLine()) {
+		if(file.canRead()) {
+			while(sc.hasNextLine()) {
+				String data = sc.nextLine();
+				System.out.println(data);
+			} 
+		} else {
+			sc.close();
+			throw new Exception("File Can not be read");
+		}
+		sc.close();
+	
+	
+		// real time implementation of a function
+		String filePath1 = "E://Test_Data/Demo_Test_Data.txt" ;
+		List<String> d = readDataFromTextFile(filePath1);
 		
-		String data = sc.nextLine();
-		System.out.println(data);
-	}
-	sc.close();
-	
+		for(String S : d) {
+			System.out.println(S);
+		}
 	}
 	
-
+// *****************************************************************************************************************
+	//commom function for reading the data from the text file
+	public static List<String> readDataFromTextFile(String filePath) throws Exception {
+		
+		List<String> dataFromTextFile = new ArrayList<String>();
+		String fileLocation = filePath;
+		File file = new File(fileLocation);
+		
+		Scanner sc = new Scanner(file);
+		
+		if(file.canRead()) {
+			
+			while(sc.hasNextLine()) {
+				String data = sc.nextLine();
+				dataFromTextFile.add(data);
+			}
+		}else {
+			sc.close();
+			throw new Exception("File Can not be read!");
+		}
+		
+		sc.close();
+		
+		for(int i=0; i<dataFromTextFile.size(); i++) {
+			
+			if(dataFromTextFile.get(i).equals("")) { // to remove the spaces from the file
+				dataFromTextFile.remove(i);  // if found removing the spaces
+			}
+		}
+		
+		return dataFromTextFile;
+	}
 }
