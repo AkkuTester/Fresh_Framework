@@ -36,7 +36,7 @@ for(String S : d) {
 }
   }
 	
-// *****************************************************************************************************************
+// *************************************************************
 	//commom function for reading the data from the text file
 	public static List<String> readDataFromTextFile(String filePath) throws Exception {
 		
